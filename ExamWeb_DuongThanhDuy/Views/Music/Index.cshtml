@@ -1,0 +1,47 @@
+﻿@model List<DiaNhac>
+
+<partial name="_ThongBao" />
+<div class="alert alert-info pt-2">
+    Có <b>@ViewBag.SUM </b> sách trong thư viện
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h2>DANH SÁCH ĐĨA NHẠC</h2>
+    </div>
+    <div class="col-md-6 text-right">
+        <a asp-action="Add" class="btn btn-primary">
+            Thêm mới
+        </a>
+    </div>
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Tựa cd</th>
+            <th>Thể loại</th>
+            <th>Giá bán</th>
+            <th>Số lượng</th>
+            <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+        <tr>
+            <td>@x.TuaCD</td>
+            <td>@(x.TrongNuoc ? "Trong nước" : "Nước ngoài")</td>
+            <td>@x.GiaBan</td>
+            <td>@x.SoLuong</td>
+            <td>
+                <a asp-action="Update" asp-route-id="@x.Id" class="btn btn-success">
+                    Sửa
+                </a>
+                <a asp-action="Delete" asp-route-id="@x.Id" class="btn btn-danger">
+                    Xoá
+                </a>
+            </td>
+        </tr>}
+    </tbody>
+</table>
+
