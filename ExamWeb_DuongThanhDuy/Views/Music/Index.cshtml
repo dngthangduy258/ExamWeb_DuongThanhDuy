@@ -1,9 +1,7 @@
 ﻿@model List<DiaNhac>
 
 <partial name="_ThongBao" />
-<div class="alert alert-info pt-2">
-    Có <b>@ViewBag.SUM </b> sách trong thư viện
-</div>
+
 <div class="row">
     <div class="col-md-6">
         <h2>DANH SÁCH ĐĨA NHẠC</h2>
@@ -18,6 +16,7 @@
     <thead>
         <tr>
             <th>Tựa cd</th>
+            <th>Nghệ sĩ</th>
             <th>Thể loại</th>
             <th>Giá bán</th>
             <th>Số lượng</th>
@@ -30,6 +29,7 @@
         {
         <tr>
             <td>@x.TuaCD</td>
+            <td>@x.NgheSi</td>
             <td>@(x.TrongNuoc ? "Trong nước" : "Nước ngoài")</td>
             <td>@x.GiaBan</td>
             <td>@x.SoLuong</td>
@@ -44,4 +44,7 @@
         </tr>}
     </tbody>
 </table>
+<div class="alert alert-info pt-2">
+    Thống kê: Có tất cả <b>@ViewBag.CountCD</b> loại CD - <b> @ViewBag.SUM </b> đĩa nhạc trong cửa hàng.
+</div>
 

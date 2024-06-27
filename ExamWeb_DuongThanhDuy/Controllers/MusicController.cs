@@ -19,6 +19,8 @@ namespace ExamWeb_DuongThanhDuy.Controllers
         {
             var dsMusic = _db.DiaNhacs.ToList();
             var tongsoluong = _db.DiaNhacs.Sum(x => x.SoLuong);
+            var tongCD = _db.DiaNhacs.Count();
+            ViewBag.CountCD = tongCD;
             ViewBag.SUM = tongsoluong;
             return View(dsMusic);
         }
